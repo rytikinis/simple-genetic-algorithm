@@ -37,13 +37,15 @@ def str2list(string):
     for char in string:
         List.append(char)
     return List
-
+    
+#Converts list to string#
 def list2str(List):
     string = ""
     for item in List:
         string += str(item)
     return string
-
+    
+#Creates a new generation#
 def createNewGeneration(ai):
     #Orignal#
     ai1 = AI(ai.genetics)
@@ -54,6 +56,7 @@ def createNewGeneration(ai):
 
     return ai1, ai2, ai3, ai4
 
+#Selects the best indvidual#
 def selectTheBestOne(individuals):
     bestOne = None
     for individual in individuals:
@@ -62,5 +65,3 @@ def selectTheBestOne(individuals):
         if countPoints(str2list(individual.genetics)) > countPoints(str2list(bestOne.genetics)):
             bestOne = individual
     return bestOne
-
-AI(generateRandomGenetic())
